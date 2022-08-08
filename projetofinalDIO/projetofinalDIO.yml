@@ -1,0 +1,41 @@
+version: '3.5'
+
+services:
+  database:
+    image: fabiosilva07/dbprojetodio
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+    ports:
+     - '3306:3306'
+    deploy:
+      mode: replicated
+      replicas: 1
+    networks:
+      projeto_net:
+  php_app:
+    image: webdevops/php-apache:alpine-php7
+    deploy:
+      mode: replicated
+      replicas: 3
+    ports:
+     - '80:80'
+    volumes:
+      - '/data/projetodiophp:/app'
+    networks:
+      projeto_net:
+
+  proxy_nginx:
+    image: nginx
+    ports:
+     - '4500:4500'
+    deploy:
+      mode: replicated
+      replicas: 1
+    volumes:
+     - '/data/projetodioproxy/nginx.conf:/etc/nginx/nginx.conf'
+    networks:
+      projeto_net:
+
+networks:
+  projeto_net:
+    driver: overlay
