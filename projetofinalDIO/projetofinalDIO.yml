@@ -2,11 +2,14 @@ version: '3.5'
 
 services:
   database:
-    image: fabiosilva07/dbprojetodio
+    image: fabiosilva07/dbprojetodio:teste
     environment:
      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+     - '/data/projetodiodb:/var/lib/mysql'
     ports:
      - '3306:3306'
+    command: ["mysqld", "--init-file=/tmp/banco.sql", "--authentication-policy=mysql_native_password"]
     deploy:
       mode: replicated
       replicas: 1
