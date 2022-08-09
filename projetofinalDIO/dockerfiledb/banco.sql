@@ -1,4 +1,4 @@
-CREATE DATABASE meubanco;
+]CREATE DATABASE meubanco;
 USE meubanco;
 CREATE TABLE dados (
     AlunoID int,
@@ -9,8 +9,3 @@ CREATE TABLE dados (
     Host varchar(50)
 );
 
-CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';
-
-GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
-
-FLUSH PRIVILEGES;

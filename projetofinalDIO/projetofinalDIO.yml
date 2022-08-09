@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   database:
-    image: fabiosilva07/dbprojetodio:teste
+    image: fabiosilva07/dbprojetodio:latest
     environment:
      - MYSQL_ROOT_PASSWORD=root
     volumes:
