@@ -32,6 +32,10 @@ cp ./nginx.conf /data/projetodioproxy
 chown -R nobody:nogroup /data/projetodioproxy
 chmod -R 777 /data/projetodioproxy
 
+mkdir /data/projetodiodb
+chown -R nobody:nogroup /data/projetodiodb
+chmod -R 777 /data/projetodiodb
+
 echo "ATENCAO: EDITAR OS ARQUIVOS NAS PASTAS EM QUAL FORAM COPIADOS COM AS ESPECIFICACOES DOS SEUS SERVIDORES."
 echo "ADICIONAR ESTE SERVIDOR A UM CLUSTER SWARM ANTES DE DAR DEPLOY DA APLICACAO"
 echo "APÓS REALIZAR ESSE PROCEDIMENTO EXECUTAR"
